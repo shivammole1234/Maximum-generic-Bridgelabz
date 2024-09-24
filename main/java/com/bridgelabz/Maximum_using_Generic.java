@@ -1,5 +1,6 @@
 package com.bridgelabz;
 
+
 public class Maximum_using_Generic {
 
     public static  Integer find_max(Integer num1,Integer num2,Integer num3)
@@ -27,6 +28,20 @@ public class Maximum_using_Generic {
         return max;
     }
 
+    public static String find_max(String str1, String str2,String str3){
+
+        String max =str1;
+
+        if(str2.compareTo(max)>0)
+            max=str2;
+
+        if(str3.compareTo(max)>0)
+            max=str3;
+
+
+        return max;
+    }
+
     public static void main(String[] args) {
 
         Integer num1=10,num2=12,num3=90;
@@ -34,5 +49,10 @@ public class Maximum_using_Generic {
 
         Float result = find_max(10.5f, 5.2f, 3.3f);
         System.out.println("Maximum Float is :- " + result);
+
+        String ans=find_max("Apple","Peach","Banana");
+        System.out.println("Maximum for String :- " + ans);
+
+
     }
 }
