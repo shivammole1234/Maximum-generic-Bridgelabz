@@ -10,7 +10,9 @@ public class Maximum_using_Generic<T extends Comparable<T>> {
     }
 
     public T testMaximum(){
-        return Find_max_Gen(values);
+        T max = Find_max_Gen(values);
+        printMax(max);
+        return max;
     }
 
     // private method to find the maximum of three comparable values
@@ -20,12 +22,20 @@ public class Maximum_using_Generic<T extends Comparable<T>> {
         return values[values.length-1];
     }
 
+    private void printMax(T max){
+        System.out.println("Maximum valueis :- "+max);
+    }
+
+
     public static void main(String[] args) {
 
-        Maximum_using_Generic<Integer> int_max=new Maximum_using_Generic<>(10,11,12,13,14,15);
-        System.out.println("Maximum element is :- "+int_max.testMaximum());
+        Maximum_using_Generic<Integer> intMax = new Maximum_using_Generic<>(10, 20, 90, 45, 67);
+        intMax.testMaximum();
 
-        Maximum_using_Generic<String> string_max=new Maximum_using_Generic<>("Banana","Peach","Apple");
-        System.out.println("Maximum String is :- "+string_max.testMaximum());
+        Maximum_using_Generic<Float> floatMax = new Maximum_using_Generic<>(10.5f, 12.3f, 9.7f, 14.5f);
+        floatMax.testMaximum();
+
+        Maximum_using_Generic<String> stringMax = new Maximum_using_Generic<>("Banana", "Peach", "Apple", "Mango");
+        stringMax.testMaximum();
     }
 }
