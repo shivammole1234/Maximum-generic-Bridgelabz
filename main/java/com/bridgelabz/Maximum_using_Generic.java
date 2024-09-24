@@ -42,6 +42,19 @@ public class Maximum_using_Generic {
         return max;
     }
 
+    //method using generic
+    public static <T extends Comparable<T>> T findMax(T val1,T val2,T val3){
+
+        T max =val1;
+        if(val2.compareTo(max)>0)
+            max=val2;
+
+        if(val3.compareTo(max)>0)
+            max=val3;
+
+        return max;
+    }
+
     public static void main(String[] args) {
 
         Integer num1=10,num2=12,num3=90;
@@ -52,6 +65,24 @@ public class Maximum_using_Generic {
 
         String ans=find_max("Apple","Peach","Banana");
         System.out.println("Maximum for String :- " + ans);
+
+
+        // Test with Integer values
+        Integer n1 = 10, n2 = 12, n3 = 90;
+        Integer maxInt = findMax(num1, num2, num3);
+        System.out.printf("Maximum of %d, %d, %d is: %d%n", num1, num2, num3, maxInt); // Expected output: 90
+
+        // Test with Float values
+        Float float1 = 10.5f, float2 = 12.3f, float3 = 9.7f;
+        Float maxFloat = findMax(float1, float2, float3);
+        System.out.printf("Maximum of %.2f, %.2f, %.2f is: %.2f%n", float1, float2, float3, maxFloat); // Expected output: 12.3
+
+        // Test with String values
+        String str1 = "Apple", str2 = "Peach", str3 = "Banana";
+        String maxString = findMax(str1, str2, str3);
+        System.out.printf("Maximum of '%s', '%s', '%s' is: '%s'%n", str1, str2, str3, maxString); // Expected output: Peach
+
+
 
 
     }
