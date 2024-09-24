@@ -1,50 +1,58 @@
 package com.bridgelabz;
 
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class Maximum_using_GenericTest {
 
-    Maximum_using_Generic maxi1=new Maximum_using_Generic();
-
     @Test
-    public void testMaximumAtFirstPosition(){
-        Integer num1=12,num2=3,num3=9;
-        assertEquals(num1,maxi1.find_max(num1,num2,num3),"Maximum number should be at first position");
-
+    public void testMaximumIntegerFirst() {
+        Maximum_using_Generic<Integer> intMax = new Maximum_using_Generic<>(90, 12, 10);
+        assertEquals(90, intMax.testMaximum());
     }
 
     @Test
-    public void testMaxiAtSecondPosition(){
-        Integer num1=5,num2=10,num3=3;
-        assertEquals(num2,maxi1.find_max(num1,num2,num3),"Max should be at osition second");
+    public void testMaximumIntegerSecond() {
+        Maximum_using_Generic<Integer> intMax = new Maximum_using_Generic<>(10, 90, 30);
+        assertEquals(90, intMax.testMaximum());
     }
 
     @Test
-    public void testMaxiAtThirdPosition(){
-        Integer num1=5,num2=10,num3=30;
-        assertEquals(num3,maxi1.find_max(num1,num2,num3),"Max should be at osition Third");
+    public void testMaximumIntegerThird() {
+        Maximum_using_Generic<Integer> intMax = new Maximum_using_Generic<>(10, 20, 90);
+        assertEquals(90, intMax.testMaximum());
     }
 
     @Test
-    public void testMaximumAtFirstPositionFloat(){
-        Float num1=12.2f,num2=3.1f,num3=9.3f;
-        assertEquals(num1,maxi1.find_max(num1,num2,num3),"Maximum number should be at first position");
-
+    public void testMaximumFloatSecond() {
+        Maximum_using_Generic<Float> floatMax = new Maximum_using_Generic<>(10.1f, 12.5f, 9.9f);
+        assertEquals(12.5f, floatMax.testMaximum());
     }
 
     @Test
-    public void testMaxiAtSecondPositionFloat(){
-        Float num1=11.2f,num2=13.1f,num3=3.3f;
-        assertEquals(num2,maxi1.find_max(num1,num2,num3),"Max should be at osition second");
+    public void testMaximumFloatThird() {
+        Maximum_using_Generic<Float> floatMax = new Maximum_using_Generic<>(10.1f, 10.2f, 12.5f);
+        assertEquals(12.5f, floatMax.testMaximum());
     }
 
     @Test
-    public void testMaxiAtThirdPositionFloat(){
-        Float num1=10.2f,num2=23.1f,num3=29.3f;
-        assertEquals(num3,maxi1.find_max(num1,num2,num3),"Max should be at osition Third");
+    public void testMaximumStringFirst(){
+        Maximum_using_Generic<String> stringMax=new Maximum_using_Generic<>("Peach","Apple","Banana");
+        assertEquals("Peach",stringMax.testMaximum());
     }
 
+    @Test
+    public void testMaximumStringSecond() {
+        Maximum_using_Generic<String> stringMax = new Maximum_using_Generic<>("Apple", "Peach", "Banana");
+        assertEquals("Peach", stringMax.testMaximum());
+    }
+
+    @Test
+    public void testMaximumStringThird() {
+        Maximum_using_Generic<String> stringMax = new Maximum_using_Generic<>("Apple", "Banana", "Peach");
+        assertEquals("Peach", stringMax.testMaximum());
+    }
 
 }
