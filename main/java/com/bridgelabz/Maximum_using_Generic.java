@@ -1,56 +1,31 @@
 package com.bridgelabz;
-
+import java.util.Arrays;
 
 public class Maximum_using_Generic<T extends Comparable<T>> {
 
-    private T first;
-    private T second;
-    private T third;
+    private T[] values;
 
-    public Maximum_using_Generic(T first,T second,T third)
-    {
-        this.first=first;
-        this.second=second;
-        this.third=third;
+    public Maximum_using_Generic(T... values){
+        this.values=values;
     }
 
-    // Method to find the maximum of the three variables
     public T testMaximum(){
-        return Find_max_Gen(first,second,third);
+        return Find_max_Gen(values);
     }
-        // private method to find the maximum of three comparable values
-    private <T extends Comparable<T>> T Find_max_Gen(T val1,T val2,T val3)
+
+    // private method to find the maximum of three comparable values
+    private static  <T extends Comparable<T>> T Find_max_Gen(T... values)
     {
-
-            T max=val1;
-
-            if(val2.compareTo(max)>0)
-                max=val2;
-
-            if(val3.compareTo(max)>0)
-                max=val3;
-
-            return max;
-        }
-
+        Arrays.sort(values);
+        return values[values.length-1];
+    }
 
     public static void main(String[] args) {
 
+        Maximum_using_Generic<Integer> int_max=new Maximum_using_Generic<>(10,11,12,13,14,15);
+        System.out.println("Maximum element is :- "+int_max.testMaximum());
 
-        Maximum_using_Generic<String> stringMax2 = new Maximum_using_Generic<>("Banana", "Peach", "Apple");
-        System.out.printf("Maximum of '%s', '%s', '%s' is: '%s'%n", "Banana", "Peach", "Apple", stringMax2.testMaximum());
-
-        // Test with Integer values
-        Maximum_using_Generic<Integer> intMax = new Maximum_using_Generic<>(10, 12, 90);
-        System.out.printf("Maximum of %d, %d, %d is: %d%n", 10, 12, 90, intMax.testMaximum());
-
-        // Test with Float values
-        Maximum_using_Generic<Float> floatMax = new Maximum_using_Generic<>(10.5f, 12.3f, 9.7f);
-        System.out.printf("Maximum of %.2f, %.2f, %.2f is: %.2f%n", 10.5f, 12.3f, 9.7f, floatMax.testMaximum());
-
-        // Test with String values
-        Maximum_using_Generic<String> stringMax = new Maximum_using_Generic<>("Apple", "Peach", "Banana");
-        System.out.printf("Maximum of '%s', '%s', '%s' is: '%s'%n", "Apple", "Peach", "Banana", stringMax.testMaximum());
-
+        Maximum_using_Generic<String> string_max=new Maximum_using_Generic<>("Banana","Peach","Apple");
+        System.out.println("Maximum String is :- "+string_max.testMaximum());
     }
 }
